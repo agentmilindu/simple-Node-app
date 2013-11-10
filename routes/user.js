@@ -11,7 +11,7 @@ exports.list = function(req, res){
  * GET localhost/users/login : users login form.
  */
 exports.login = function(req, res){
-  res.render('login', {   title: 'Login!', message : req.session.msg  });
+  res.render('login', {   title: 'Login', message : req.session.msg  });
 };
 
 /*
@@ -41,6 +41,14 @@ exports.logger = function (req, res) {
         req.session.msg = "username password missmatch"
         res.redirect("/users/login")
     } 
+};
+
+/*
+ * GET localhost/users/logout : user log out.
+ */
+exports.logout = function(req, res){
+  req.session.destroy();
+  res.redirect("/")
 };
 
 /*

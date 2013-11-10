@@ -34,8 +34,9 @@ app.configure('development', function(){
 app.get('/', routes.index); // GET localhost/
 app.get('/users', user.list); // GET localhost/users
 app.get('/users/dash', user.dash); // GET localhost/dash
-app.get('/users/login', user.login); // GET localhost/login
+app.get('/users/login', user.login); // GET localhost/users/login
 app.post('/users/logger', user.logger); // POST localhost/users/logger
+app.get('/users/logout', user.logout); // GET localhost/users/logout
 app.get('/users/:username', user.profile); // GET  localhost/users/bill
 
 http.createServer(app).listen(app.get('port'), function(){

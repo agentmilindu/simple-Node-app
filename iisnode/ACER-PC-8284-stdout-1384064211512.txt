@@ -1,0 +1,13 @@
+Express server listening on port \\.\pipe\301d32ea-1ab6-4fa8-b90a-f1dab77ef837
+[90mGET /users/dash [36m302 [90m351ms - 80[0m
+[90mGET /users/login [32m200 [90m32ms - 423[0m
+[90mPOST /users/logger [36m302 [90m3ms - 78[0m
+[90mGET /users/dash [32m200 [90m4ms - 187[0m
+[90mGET /users/dash [32m200 [90m4ms - 187[0m
+[90mGET /users/dash [32m200 [90m6ms - 187[0m
+[90mGET /users/dash [32m200 [90m4ms - 187[0m
+[90mGET /users/logout [36m302 [90m1ms - 58[0m
+[90mGET / [32m200 [90m5ms - 201[0m
+[90mGET /users/login [32m200 [90m7ms - 396[0m
+[90mGET /users/dash [36m302 [90m5ms - 80[0m
+[90mGET /users/login [32m200 [90m6ms - 423[0m
