@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"ACER-PC-10360-stdout-1383905815610.txt","computername":"ACER-PC","pid":10360,"type":"stdout","created":1383905815610},{"file":"ACER-PC-11532-stdout-1383849801593.txt","computername":"ACER-PC","pid":11532,"type":"stdout","created":1383849801593},{"file":"ACER-PC-11664-stderr-1383849719758.txt","computername":"ACER-PC","pid":11664,"type":"stderr","created":1383849719758},{"file":"ACER-PC-11736-stdout-1383850229225.txt","computername":"ACER-PC","pid":11736,"type":"stdout","created":1383850229225},{"file":"ACER-PC-11832-stderr-1383849735759.txt","computername":"ACER-PC","pid":11832,"type":"stderr","created":1383849735759},{"file":"ACER-PC-11896-stdout-1383850275708.txt","computername":"ACER-PC","pid":11896,"type":"stdout","created":1383850275708},{"file":"ACER-PC-11988-stdout-1383849749916.txt","computername":"ACER-PC","pid":11988,"type":"stdout","created":1383849749916},{"file":"ACER-PC-12156-stdout-1383849766251.txt","computername":"ACER-PC","pid":12156,"type":"stdout","created":1383849766251},{"file":"ACER-PC-12208-stdout-1383905537831.txt","computername":"ACER-PC","pid":12208,"type":"stdout","created":1383905537831},{"file":"ACER-PC-12224-stdout-1383850327057.txt","computername":"ACER-PC","pid":12224,"type":"stdout","created":1383850327057},{"file":"ACER-PC-1600-stderr-1383849958349.txt","computername":"ACER-PC","pid":1600,"type":"stderr","created":1383849958349},{"file":"ACER-PC-1600-stdout-1383849958340.txt","computername":"ACER-PC","pid":1600,"type":"stdout","created":1383849958340},{"file":"ACER-PC-7464-stdout-1384060490942.txt","computername":"ACER-PC","pid":7464,"type":"stdout","created":1384060490942},{"file":"ACER-PC-7700-stderr-1383850104017.txt","computername":"ACER-PC","pid":7700,"type":"stderr","created":1383850104017},{"file":"ACER-PC-7700-stdout-1383850104012.txt","computername":"ACER-PC","pid":7700,"type":"stdout","created":1383850104012},{"file":"ACER-PC-7840-stdout-1384061121604.txt","computername":"ACER-PC","pid":7840,"type":"stdout","created":1384061121604},{"file":"ACER-PC-7848-stderr-1384061075634.txt","computername":"ACER-PC","pid":7848,"type":"stderr","created":1384061075634},{"file":"ACER-PC-7848-stdout-1384061075627.txt","computername":"ACER-PC","pid":7848,"type":"stdout","created":1384061075627},{"file":"ACER-PC-8940-stdout-1383904579990.txt","computername":"ACER-PC","pid":8940,"type":"stdout","created":1383904579990},{"file":"ACER-PC-9976-stderr-1383850127181.txt","computername":"ACER-PC","pid":9976,"type":"stderr","created":1383850127181},{"file":"ACER-PC-9976-stdout-1383850127176.txt","computername":"ACER-PC","pid":9976,"type":"stdout","created":1383850127176}];
+        var lastUpdated = 1384061121769;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Express server listening on port \\.\pipe\166547d0-3a3c-494e-aa79-d3ee93d0cfe5
+[90mPOST /users/logger [36m302 [90m364ms - 80[0m
+[90mGET /users/login [32m200 [90m39ms - 430[0m
