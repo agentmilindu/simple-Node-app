@@ -1,7 +1,7 @@
 Simple Node app
 ==================
 
-This is the source code of the simple app that I presented on Microsoft Student Champs Monthly Meeting - November 2013
+This is the source code of the simple app 
 
 #### Stuffs to check
 1. server.js
